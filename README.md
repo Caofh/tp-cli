@@ -30,3 +30,9 @@ npm run pre // 预发布
 npm run build // 线上
 ~~~
 
+## 三、查看脚手架所有指令，如下：
+~~~
+tp list
+~~~
+
+
