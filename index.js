@@ -27,7 +27,7 @@ program.version('1.0.0', '-v, --version')
                 const spinner = ora('正在下载模板...');
                 spinner.start();
 
-				download('github:Caofh/cao_tour', name, {clone: true}, (err) => {
+				download('github:Caofh/vue-spa-2020', name, {clone: true}, (err) => {
                     if(err){
                         spinner.fail();
                         console.log(symbols.error, chalk.red(err));
