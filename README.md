@@ -3,7 +3,7 @@
 
 ## 全局安装脚手架，命令行执行：
 ~~~
-npm install tp-cli -g
+npm install topay-cli -g
 ~~~
 
 ## 初始化vue-cli基础架构单页面项目，命令行执行：
