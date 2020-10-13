@@ -3,7 +3,8 @@
   "version": "1.0.4",
   "description": "前端项目脚手架",
   "bin": {
-    "tp": "index.js"
+    "tp": "index.js",
+    "tp_config": "config.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
