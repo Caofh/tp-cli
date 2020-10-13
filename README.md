@@ -30,3 +30,8 @@ npm run pre // 预发布
 npm run build // 线上
 ~~~
 
+## 二、查看所有指令，如下：
+~~~
+tp_config list
+~~~
+
