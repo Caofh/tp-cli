@@ -8,8 +8,9 @@ const inquirer = require('inquirer');
 const ora = require('ora');
 const chalk = require('chalk');
 const symbols = require('log-symbols');
+const packageJson = require('./package.json');
 
-program1.version('1.0.0', '-v, --version')
+program1.version(packageJson.version, '-v, --version')
 	.command('list')
     .action((name) => {
         console.log(symbols.success, chalk.green('tp init ***(项目名) : 初始化新项目'))
