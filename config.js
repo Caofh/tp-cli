@@ -14,6 +14,7 @@ program1.version(packageJson.version, '-v, --version')
 	.command('list')
     .action((name) => {
         console.log(symbols.success, chalk.green('tp init ***(项目名) : 初始化新项目'))
+        console.log(symbols.success, chalk.green('tp_manage init ***(项目名) : 初始化管理端脚手架项目'))
 
     })
 program1.parse(process.argv);
