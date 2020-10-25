@@ -30,9 +30,11 @@ npm run pre // 预发布
 npm run build // 线上
 ~~~
 
-## 三、初始化管理端脚手架项目，如下：
+## 三、所有脚手架项目，如下：
 ~~~
-tp_manage init ***(你的项目名称)
+tp init ***(你的项目名称) // 基于vue-cli的空项目脚手架
+tp_manage init ***(你的项目名称) // 基于vue-cli和elementui的管理后台空项目脚手架
+tp_uniapp init ***(你的项目名称) // 基于uniapp的空项目脚手架
 ~~~
 
 ## 四、查看所有指令，如下：
