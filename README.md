@@ -37,12 +37,14 @@ npm run build // 线上
 ~~~
 tp init ***(你的项目名称) // 基于vue-cli的空项目脚手架
 tp_manage init ***(你的项目名称) // 基于vue-cli和elementui的管理后台空项目脚手架
+tp_manage_v1 init ***(你的项目名称) // 管理后台空项目(全新ui)脚手架
 tp_uniapp init ***(你的项目名称) // 基于uniapp的空项目脚手架
 ~~~
 
 ## 四、查看所有指令，如下：
 ~~~
-tp_config list
+tp_config list // 查看所有脚手架指令
+tp -v // 查看当前脚手架工具版本
 ~~~
 
 ## 三、各个脚手架详解：
