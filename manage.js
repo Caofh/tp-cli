@@ -28,7 +28,8 @@ program.version(packageJson.version, '-v, --version')
                 const spinner = ora('正在下载模板...');
                 spinner.start();
 
-				download('github:Caofh/vue-manage-2020', name, {clone: true}, (err) => {
+				// download('github:Caofh/vue-manage-2020', name, {clone: true}, (err) => {
+				download('direct:https://github.com/Caofh/vue-manage-2020.git', name, {clone: true}, (err) => {
                     if(err){
                         spinner.fail();
                         console.log(symbols.error, chalk.red(err));
