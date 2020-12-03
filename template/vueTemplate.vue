@@ -23,12 +23,12 @@ export default {
   watch: {
     demoWatch: {
       handler(newValue, oldValue) {
-        console.log(newValue, oldValue);
+        // console.log(newValue, oldValue);
       },
       immediate: true,
     },
     demoWatch1(newValue, oldValue) {
-      console.log(newValue, oldValue);
+      // console.log(newValue, oldValue);
     },
   },
   // vue-router路由守卫，前置
