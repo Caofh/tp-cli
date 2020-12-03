@@ -3,6 +3,8 @@
 const { Command } = require('commander');
 const handlebars = require('handlebars');
 const fs = require('fs');
+const chalk = require('chalk');
+const symbols = require('log-symbols');
 
 const program = new Command();
 program.version('0.0.1');
@@ -29,7 +31,7 @@ function startTemplate(program, fs) {
       console.log(error);
       return false;
     }
-    console.log('写入成功');
+    console.log(symbols.success, chalk.green('写入成功，模版路径：' + process.cwd() + '/' + nameFirst + '.vue'));
   })
 }
 
