@@ -1,5 +1,5 @@
 <template>
-  <div class="demo"></div>
+  <div class="{{name}}"></div>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ import { mapMutations, mapActions, mapState, mapGetters } from "vuex";
 import { goPage } from "@/utils";
 
 export default {
-  name: "Demo",
+  name: "{{Name}}",
   data() {
     return {};
   },
@@ -21,13 +21,13 @@ export default {
   computed: {},
   filters: {},
   watch: {
-    demo: {
+    demoWatch: {
       handler(newValue, oldValue) {
         console.log(newValue, oldValue);
       },
       immediate: true,
     },
-    demo1(newValue, oldValue) {
+    demoWatch1(newValue, oldValue) {
       console.log(newValue, oldValue);
     },
   },
@@ -44,6 +44,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.demo {
+.{{name}} {
 }
 </style>

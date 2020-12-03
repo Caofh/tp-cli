@@ -10,30 +10,30 @@ const symbols = require('log-symbols');
 const packageJson = require('./package.json');
 
 program.version(packageJson.version, '-v, --version')
-	.command('init <name>')
+    .command('init <name>')
     .action((name) => {
 
-        if(!fs.existsSync(name)){
+        if (!fs.existsSync(name)) {
             inquirer.prompt([
                 {
-					name: 'description',
-					message: '请输入项目描述'
-				},
-				{
-					name: 'author',
-					message: '请输入作者名称'
-				}
+                    name: 'description',
+                    message: '请输入项目描述'
+                },
+                {
+                    name: 'author',
+                    message: '请输入作者名称'
+                }
             ]).then((answers) => {
 
                 const spinner = ora('正在下载模板...');
                 spinner.start();
 
-				// download('github:Caofh/vue-spa-2020', name, {clone: true}, (err) => {
-				download('direct:https://github.com/Caofh/vue-spa-2020.git', name, {clone: true}, (err) => {
-                    if(err){
+                // download('github:Caofh/vue-spa-2020', name, {clone: true}, (err) => {
+                download('direct:https://github.com/Caofh/vue-spa-2020.git', name, { clone: true }, (err) => {
+                    if (err) {
                         spinner.fail();
                         console.log(symbols.error, chalk.red(err));
-                    }else{
+                    } else {
                         spinner.succeed();
                         const fileName = `${name}/package.json`;
                         const meta = {
@@ -41,17 +41,17 @@ program.version(packageJson.version, '-v, --version')
                             description: answers.description,
                             author: answers.author
                         }
-                        if(fs.existsSync(fileName)){
+                        if (fs.existsSync(fileName)) {
                             const content = fs.readFileSync(fileName).toString();
                             const result = handlebars.compile(content)(meta);
                             fs.writeFileSync(fileName, result);
                         }
-                        console.log(symbols.success, chalk.green('项目初始化完成，项目路径：'+process.cwd() + '/' + name+''));
+                        console.log(symbols.success, chalk.green('项目初始化完成，项目路径：' + process.cwd() + '/' + name + ''));
 
                     }
                 })
             })
-        }else{
+        } else {
             // 错误提示项目已存在，避免覆盖原有项目
             console.log(symbols.error, chalk.red('项目已存在'));
         }
