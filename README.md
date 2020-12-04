@@ -43,8 +43,12 @@ tp_uniapp init ***(你的项目名称) // 基于uniapp的空项目脚手架
 
 ## 四、所有脚手架自定义指令，如下：
 ~~~
-tp_create -n ***(你的组件名称) // 在当前目录下生成一个vue组件空模版
+tp_create (-n *** -f *** -p ***) // 在当前目录下生成一个vue组件空模版
 ~~~
+### tp_create 
+#### -n：***(生成的模版文件名称) 
+#### -p：***(生成路径：如：/Users/username/caofanghui/person/tp-cli/template，选传) 
+#### -f：***(要下载的组件名，默认vueTemplate，选传) : 在当前路径下生成一个vue模版
 
 ## 五、查看所有指令，如下：
 ~~~
