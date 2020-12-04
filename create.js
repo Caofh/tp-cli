@@ -51,7 +51,7 @@ function startTemplate(program, fs, temPath) {
   downTemplate(temPath, name).then((res) => {
     res.setEncoding('utf8');
     res.on('data', (chunk) => {
-      console.log(`响应主体：${chunk}`)
+      // console.log(`响应主体：${chunk}`)
 
       // 响应主体
       let content = chunk
