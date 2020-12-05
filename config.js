@@ -15,6 +15,7 @@ console.log(symbols.success, chalk.green('tp init ***(项目名) : 初始化新�
 console.log(symbols.success, chalk.green('tp_manage init ***(项目名) : 初始化管理端脚手架项目'))
 console.log(symbols.success, chalk.green('tp_manage_v1 init ***(项目名) : 初始化管理端(全新ui)脚手架项目'))
 console.log(symbols.success, chalk.green('tp_uniapp init ***(项目名) : 初始化uniapp小程序跨平台脚手架项目'))
+console.log(symbols.success, chalk.green('tp_egg init ***(项目名) : 初始化egg(nodejs)项目脚手架'))
 console.log('')
 
 console.log(chalk.green('初始化vue空模版：'))
