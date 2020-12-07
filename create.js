@@ -9,8 +9,8 @@ var http = require('http');
 var https = require('https');
 var { URL } = require('url');
 
-// 组件目录(模版池子)
-var templateList = require('./template/templateList')
+// 获取组件目录(模版池子)
+var template = require('./template/templateList')
 
 const program = new Command();
 program.version('0.0.1');
@@ -27,11 +27,16 @@ program.parse(process.argv);
 let name = program.componentName
 if (name && name !== '-p') {
 
-  let from = program.componentFrom // 传入模版名称
-  let temPath = templateList[from] // 模版下载路径(获取模版池子中的模版地址)
+  template.getTemplates().then((templateList) => {
+    // console.log(templateList)
 
-  // 生成初始化vue模版
-  startTemplate(program, fs, temPath)
+    let from = program.componentFrom // 传入模版名称
+    let temPath = templateList[from] // 模版下载路径(获取模版池子中的模版地址)
+
+    // 生成初始化vue模版
+    startTemplate(program, fs, temPath)
+
+  })
 
 } else {
   console.log(symbols.error, chalk.red('未带-n参数，请传入文件名；如：tp_create -n name'));
@@ -48,7 +53,7 @@ function startTemplate(program, fs, temPath) {
   // 最终组件目标路径位置
   let componentPath = path ? path : pwd
 
-  downTemplate(temPath, name).then((res) => {
+  downTemplate(temPath).then((res) => {
     res.setEncoding('utf8');
     res.on('data', (chunk) => {
       // console.log(`响应主体：${chunk}`)
