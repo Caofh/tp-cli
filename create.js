@@ -60,9 +60,11 @@ function startTemplate(program, fs, temPath) {
 
       // 响应主体
       let content = chunk
-      content = content.replace(/\{{name}}/g, `${name}-container`).replace(/{{Name}}/g, `${nameFirst}`) // 替换组件内名称
+      content = content.replace(/\{{name}}/g, `${name.split('.')[0]}-container`).replace(/{{Name}}/g, `${nameFirst.split('.')[0]}`) // 替换组件内名称
 
       // 增加后缀
+      console.log(name)
+      console.log(/\./g.test(name))
       let nameFirstAddSuffix = /\./g.test(name) ? nameFirst : nameFirst + '.vue'
 
       fs.writeFile(`${componentPath + '/' + nameFirstAddSuffix}`, content, 'utf8', function (error) {
@@ -70,7 +72,7 @@ function startTemplate(program, fs, temPath) {
           console.log(error);
           return false;
         }
-        console.log(symbols.success, chalk.green('写入成功，模版路径：' + componentPath + '/' + nameFirst + '.vue'));
+        console.log(symbols.success, chalk.green('写入成功，模版路径：' + componentPath + '/' + nameFirstAddSuffix));
       })
 
     })

@@ -1,6 +1,6 @@
 {
   "name": "topay-cli",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "前端项目脚手架",
   "bin": {
     "tp": "index.js",
