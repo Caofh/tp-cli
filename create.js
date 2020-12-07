@@ -57,7 +57,10 @@ function startTemplate(program, fs, temPath) {
       let content = chunk
       content = content.replace(/\{{name}}/g, `${name}-container`).replace(/{{Name}}/g, `${nameFirst}`) // 替换组件内名称
 
-      fs.writeFile(`${componentPath + '/' + nameFirst}.vue`, content, 'utf8', function (error) {
+      // 增加后缀
+      let nameFirstAddSuffix = /\./g.test(name) ? nameFirst : nameFirst + '.vue'
+
+      fs.writeFile(`${componentPath + '/' + nameFirstAddSuffix}`, content, 'utf8', function (error) {
         if (error) {
           console.log(error);
           return false;

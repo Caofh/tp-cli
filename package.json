@@ -1,6 +1,6 @@
 {
   "name": "topay-cli",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "前端项目脚手架",
   "bin": {
     "tp": "index.js",
@@ -9,7 +9,7 @@
     "tp_uniapp": "uniapp.js",
     "tp_egg": "egg.js",
     "tp_list": "config.js",
-    "tp_create": "create.js"
+    "tp_c": "create.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
