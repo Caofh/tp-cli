@@ -30,7 +30,7 @@ template.getTemplates().then((templateList) => {
     console.log(symbols.success, chalk.green(`tp_c ${chalk.yellow(`-n`)} ***(生成的模版文件名称) ${chalk.yellow(`-p`)} ***(生成路径：如：/Users/username/caofanghui/person/tp-cli/template，选传) ${chalk.yellow(`-f`)} ***(要下载的组件名，默认${chalk.yellow(`vueTemplate`)}，选传) : 在当前路径下生成一个vue模版`))
     console.log(symbols.info, chalk.yellow('组件目录（模版目录）：'))
     Object.keys(templateList).map((key) => {
-        console.log(symbols.info, chalk.yellow(`组件名称：${key} 组件地址：${templateList[key]}`))
+        console.log(symbols.info, chalk.yellow(`组件名称：`) + chalk.green(`${key}`) + chalk.yellow(` 组件地址：${templateList[key]}`))
     })
     console.log('')
 
