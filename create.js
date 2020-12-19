@@ -54,20 +54,24 @@ function startTemplate(program, fs, temPath) {
   let componentPath = path ? path : pwd
 
   downTemplate(temPath).then((res) => {
+
+    // 请求的响应数据累加
+    let data = ''
+
     res.setEncoding('utf8');
     res.on('data', (chunk) => {
-      // console.log(`响应主体：${chunk}`)
-
       // 响应主体
-      let content = chunk
-      content = content.replace(/\{{name}}/g, `${name.split('.')[0]}-container`).replace(/{{Name}}/g, `${nameFirst.split('.')[0]}`) // 替换组件内名称
+      let content = chunk.replace(/{{name}}/g, `${name.split('.')[0]}-container`).replace(/{{Name}}/g, `${nameFirst.split('.')[0]}`) // 替换组件内名称
+      data += content
+
+    })
+    res.on('end', () => {
+      // console.log('响应中已无数据');
+      // console.log(data)
 
       // 增加后缀
-      console.log(name)
-      console.log(/\./g.test(name))
       let nameFirstAddSuffix = /\./g.test(name) ? nameFirst : nameFirst + '.vue'
-
-      fs.writeFile(`${componentPath + '/' + nameFirstAddSuffix}`, content, 'utf8', function (error) {
+      fs.writeFile(`${componentPath + '/' + nameFirstAddSuffix}`, data, 'utf8', function (error) {
         if (error) {
           console.log(error);
           return false;
@@ -75,9 +79,6 @@ function startTemplate(program, fs, temPath) {
         console.log(symbols.success, chalk.green('写入成功，模版路径：' + componentPath + '/' + nameFirstAddSuffix));
       })
 
-    })
-    res.on('end', () => {
-      // console.log('响应中已无数据');
     });
 
   })
