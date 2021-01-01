@@ -48,6 +48,8 @@ tp_egg init ***(你的项目名称) // 基于egg的空项目脚手架
 ~~~
 tp_c (-n *** -f *** -p ***) // 在当前目录下生成一个vue组件空模版
 ~~~
+#### 配合TOPAY-CLI管理后台项目使用；[项目地址](https://tpdoc.cn/topay_cli_manage/)
+
 ### tp_create 
 #### -n：***(生成的模版文件名称) 
 #### -p：***(生成路径：如：/Users/username/caofanghui/person/tp-cli/template，选传) 
