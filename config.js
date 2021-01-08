@@ -19,8 +19,9 @@ template.getTemplates().then((templateList) => {
 
     console.log(chalk.green('初始化项目：'))
     console.log(symbols.success, chalk.green('tp init ***(项目名) : 初始化新项目'))
-    console.log(symbols.success, chalk.green('tp_manage init ***(项目名) : 初始化管理端脚手架项目'))
-    console.log(symbols.success, chalk.green('tp_manage_v1 init ***(项目名) : 初始化管理端(全新ui)脚手架项目'))
+    console.log(symbols.success, chalk.green('tp_manage init ***(项目名) : 初始化管理端(全新ui)脚手架项目'))
+    console.log(symbols.success, chalk.green('tp_manage_v1 init ***(项目名) : 初始化管理端(全新ui_v1)脚手架项目'))
+    console.log(symbols.success, chalk.green('tp_manage_v2 init ***(项目名) : 初始化管理端(全新ui_v2)脚手架项目'))
     console.log(symbols.success, chalk.green('tp_cao_admin init ***(项目名) : 初始化管理端(基于elementUi和vue-cli的后台管理端项目)'))
     console.log(symbols.success, chalk.green('tp_uniapp init ***(项目名) : 初始化uniapp小程序跨平台脚手架项目'))
     console.log(symbols.success, chalk.green('tp_egg init ***(项目名) : 初始化egg(nodejs)项目脚手架'))
