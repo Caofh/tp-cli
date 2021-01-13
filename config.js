@@ -10,7 +10,7 @@ var template = require('./template/templateList')
 program.version(packageJson.version, '-v, --version')
 program.parse(process.argv);
 
-template.getTemplates().then((templateList) => {
+template.getTemplates({ status: 1 }).then((templateList) => {
     // console.log(templateList)
     console.log(chalk.green('脚手架基础指令：'))
     console.log(symbols.success, chalk.green('tp -v: 脚手架版本'))

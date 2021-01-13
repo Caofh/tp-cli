@@ -2,16 +2,25 @@
 var http = require('http');
 var https = require('https');
 var { URL } = require('url');
+var toQueryPair = require('../utils/urlQuery');
 
 // 获取当前模版api接口(接口文档：http://tpdoc.cn:7011/public/apidoc/index.html#api-%E6%A8%A1%E6%9D%BF%E6%8E%A5%E5%8F%A3-getTemplateInfo)
-let getTemplateInfo = 'https://tpdoc.cn/api_2020/tpCli/template/getTemplateInfo?test=1&status=1'
+let getTemplateInfo = 'https://tpdoc.cn/api_2020/tpCli/template/getTemplateInfo?test=1'
 
 let templates = {
 
   // 获取模版列表数据
-  getTemplates() {
+  getTemplates(para) {
+    let paraStr = toQueryPair.toQueryString(para)
+
+    // 动态添加参数
+    let url = getTemplateInfo
+    if (para) {
+      url = getTemplateInfo += '&' + paraStr
+    }
+
     return new Promise((resolve, reject) => {
-      api(getTemplateInfo).then((res) => {
+      api(url).then((res) => {
         res.setEncoding('utf8');
         res.on('data', (chunk) => {
           // console.log(`响应主体：${chunk}`)
