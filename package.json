@@ -10,6 +10,7 @@
     "tp_cao_admin": "cao_admin.js",
     "tp_uniapp": "uniapp.js",
     "tp_egg": "egg.js",
+    "tp_react": "react.js",
     "tp_list": "config.js",
     "tp_c": "create.js"
   },
