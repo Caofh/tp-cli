@@ -11,6 +11,7 @@
     "tp_uniapp": "uniapp.js",
     "tp_egg": "egg.js",
     "tp_react": "react.js",
+    "tp_egret": "egret.js",
     "tp_list": "config.js",
     "tp_c": "create.js"
   },
