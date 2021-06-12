@@ -37,6 +37,7 @@ npm run build // 线上
 ## 三、所有脚手架项目，如下：
 ~~~
 tp init ***(你的项目名称) // 基于vue-cli的空项目脚手架
+tp_v3 init ***(你的项目名称) // 基于vue-cli的vue3+ts+vuex+vue-router空项目脚手架
 tp_manage init ***(你的项目名称) // 基于vue-cli和elementui的管理后台空项目脚手架
 tp_manage_v1 init ***(你的项目名称) // 管理后台空项目(全新ui)脚手架
 tp_cao_admin init ***(你的项目名称) // 初始化管理端(基于elementUi和vue-cli的后台管理端项目)

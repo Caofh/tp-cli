@@ -19,6 +19,7 @@ template.getTemplates({ status: 1 }).then((templateList) => {
 
     console.log(chalk.green('初始化项目：'))
     console.log(symbols.success, chalk.green('tp init ***(项目名) : 初始化新项目'))
+    console.log(symbols.success, chalk.green('tp_v3 init ***(项目名) : 初始化vue3+ts新项目'))
     console.log(symbols.success, chalk.green('tp_manage init ***(项目名) : 初始化管理端(全新ui)脚手架项目'))
     console.log(symbols.success, chalk.green('tp_manage_v1 init ***(项目名) : 初始化管理端(全新ui_v1)脚手架项目'))
     console.log(symbols.success, chalk.green('tp_manage_v2 init ***(项目名) : 初始化管理端(全新ui_v2)脚手架项目'))
