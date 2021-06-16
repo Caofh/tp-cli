@@ -1,10 +1,11 @@
 {
   "name": "topay-cli",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "前端项目脚手架",
   "bin": {
     "tp": "index.js",
     "tp_v3": "index_v3.js",
+    "tp_v3_h5": "index_v3_h5.js",
     "tp_manage": "manage.js",
     "tp_manage_v1": "manage_v1.js",
     "tp_manage_v2": "manage_v2.js",
