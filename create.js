@@ -8,6 +8,7 @@ const symbols = require('log-symbols');
 var http = require('http');
 var https = require('https');
 var { URL } = require('url');
+var library = require('./utils/library.js')
 
 // 获取组件目录(模版池子)
 var template = require('./template/templateList')
@@ -53,41 +54,59 @@ function startTemplate(program, fs, temPath) {
   // 最终组件目标路径位置
   let componentPath = path ? path : pwd
 
-  downTemplate(temPath).then((res) => {
+  if (temPath instanceof Object && temPath.template_type == 1) {
+    // 模板代码
+    let template_code = temPath.template_code || ''
 
-    // 请求的响应数据累加
-    let data = ''
+    const entitys = {
+      '&amp;' : '&',
+      '&lt;' : '<',
+      '&gt;' : '>',
+    }
+    // html实体还原
+    template_code = library.convert(entitys, template_code)
 
-    res.setEncoding('utf8');
-    res.on('data', (chunk) => {
-      // 响应主体
-      let content = chunk.replace(/{{name}}/g, `${name.split('.')[0]}-container`).replace(/{{Name}}/g, `${nameFirst.split('.')[0]}`) // 替换组件内名称
-      data += content
+    makeFile(name, nameFirst, componentPath, template_code)
 
-    })
-    res.on('end', () => {
-      // console.log('响应中已无数据');
-      // console.log(data)
-
-      // 增加后缀
-      let nameFirstAddSuffix = /\./g.test(name) ? nameFirst : nameFirst + '.vue'
-      fs.writeFile(`${componentPath + '/' + nameFirstAddSuffix}`, data, 'utf8', function (error) {
-        if (error) {
-          console.log(error);
-          return false;
-        }
-        console.log(symbols.success, chalk.green('写入成功，模版路径：' + componentPath + '/' + nameFirstAddSuffix));
+  } else {
+    downTemplate(temPath).then((res) => {
+      // 请求的响应数据累加
+      let data = ''
+  
+      res.setEncoding('utf8');
+      res.on('data', (chunk) => {
+        // 响应主体
+        let content = chunk.replace(/{{name}}/g, `${name.split('.')[0]}-container`).replace(/{{Name}}/g, `${nameFirst.split('.')[0]}`) // 替换组件内名称
+        data += content
+  
       })
+      res.on('end', () => {
+        // console.log('响应中已无数据');
+        // console.log(data)
 
-    });
+        makeFile(name, nameFirst, componentPath, data)
+      });
+  
+    })
+  }
 
+}
+
+// 生成文件
+function makeFile (name, nameFirst, componentPath, data) {
+  // 增加后缀
+  let nameFirstAddSuffix = /\./g.test(name) ? nameFirst : nameFirst + '.vue'
+  fs.writeFile(`${componentPath + '/' + nameFirstAddSuffix}`, data, 'utf8', function (error) {
+    if (error) {
+      console.log(error);
+      return false;
+    }
+    console.log(symbols.success, chalk.green('写入成功，模版路径：' + componentPath + '/' + nameFirstAddSuffix));
   })
-
 }
 
 // 下载模版方法
 function downTemplate(temPath) {
-
   return new Promise((resolve, reject) => {
 
     let url = new URL(temPath)
