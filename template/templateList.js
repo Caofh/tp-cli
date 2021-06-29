@@ -5,8 +5,8 @@ var { URL } = require('url');
 var toQueryPair = require('../utils/urlQuery');
 
 // 获取当前模版api接口(接口文档：http://tpdoc.cn:7011/public/apidoc/index.html#api-%E6%A8%A1%E6%9D%BF%E6%8E%A5%E5%8F%A3-getTemplateInfo)
-let getTemplateInfo = 'https://tpdoc.cn/api_2020_test/tpCli/template/getTemplateInfo?test=1'
-// let getTemplateInfo = 'https://tpdoc.cn/api_2020/tpCli/template/getTemplateInfo?test=1'
+// let getTemplateInfo = 'https://tpdoc.cn/api_2020_test/tpCli/template/getTemplateInfo?test=1'
+let getTemplateInfo = 'https://tpdoc.cn/api_2020/tpCli/template/getTemplateInfo?test=1'
 
 let templates = {
 
