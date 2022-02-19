@@ -40,7 +40,7 @@ if (name && name !== '-p') {
   })
 
 } else {
-  console.log(symbols.error, chalk.red('未带-n参数，请传入文件名；如：tp_create -n name'));
+  console.log(symbols.error, chalk.red('未带-n参数，请传入文件名；如：tp_c -n name'));
 }
 
 

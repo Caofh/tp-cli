@@ -7,6 +7,7 @@ var toQueryPair = require('../utils/urlQuery');
 // 获取当前模版api接口(接口文档：http://tpdoc.cn:7011/public/apidoc/index.html#api-%E6%A8%A1%E6%9D%BF%E6%8E%A5%E5%8F%A3-getTemplateInfo)
 // let getTemplateInfo = 'https://tpdoc.cn/api_2020_test/tpCli/template/getTemplateInfo?test=1'
 let getTemplateInfo = 'https://tpdoc.cn/api_2020/tpCli/template/getTemplateInfo?test=1'
+let getPluginsInfo = 'https://tpdoc.cn/api_p2022_test/caseDetailDevelope?test=1'
 
 let templates = {
 
@@ -42,6 +43,34 @@ let templates = {
           })
 
           resolve(templateList)
+
+        })
+        res.on('end', () => {
+          // console.log('响应中已无数据');
+        });
+
+      })
+
+    })
+  },
+  // 获取组件地址
+  getPluginsData(para) {
+    let paraStr = toQueryPair.toQueryString(para)
+
+    // 动态添加参数
+    let url = getPluginsInfo
+    if (para) {
+      url = getPluginsInfo += '&' + paraStr
+    }
+
+    return new Promise((resolve, reject) => {
+      api(url).then((res) => {
+        res.setEncoding('utf8');
+        res.on('data', (chunk) => {
+          // console.log(`响应主体：${chunk}`)
+
+          let data = JSON.parse(chunk)
+          resolve(data.data)
 
         })
         res.on('end', () => {
